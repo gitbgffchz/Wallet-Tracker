@@ -1,0 +1,19 @@
+[Unit]
+Description=My test service
+After=multi-user.target
+
+[Service]
+User=pythonBOT
+Group=pythonBOT
+WorkingDirectory=$pwd
+VIRTUAL_ENV=<path-to-repo>/venv
+Environment=PATH=$VIRTUAL_ENV/bin:$PATH
+ExecStart=<path-to-repo>/venv/bin/python app.py
+Restart=on-failure
+
+Type=simple
+Restart=always
+ExecStart=cd <path-to-repo> && /usr/bin/python3 /home//test.py
+
+[Install]
+WantedBy=multi-user.target
